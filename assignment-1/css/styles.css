@@ -1,0 +1,190 @@
+/* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #fdfdfd;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Sidebar Style --- */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    padding: 40px 30px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+}
+
+.profile-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-image svg {
+    border-radius: 50%;
+    border: 3px solid #FFDAB3;
+    margin-bottom: 10px;
+}
+
+.profile-name {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.social-icon {
+    color: white;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    color: #FFDAB3;
+    transform: translateY(-3px);
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.sidebar-nav li a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.sidebar-nav li a:hover {
+    color: #FFDAB3;
+    padding-left: 5px;
+}
+
+.contact-info {
+    margin-top: 40px;
+    font-size: 12px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+}
+
+.contact-info a {
+    color: #FFDAB3;
+    text-decoration: none;
+}
+
+/* --- Main Content Layout --- */
+.main-content {
+    margin-left: 280px;
+    flex: 1;
+}
+
+section {
+    padding: 60px 80px;
+}
+
+h2 {
+    color: #574964;
+    margin-bottom: 25px;
+    font-size: 28px;
+    border-left: 5px solid #FFDAB3;
+    padding-left: 15px;
+}
+
+/* Hero Header Look */
+.about-me-section {
+    background: linear-gradient(135deg, #574964 0%, #9F8383 100%);
+    color: white;
+}
+
+.about-me-section h2 {
+    color: white;
+    border-left: none;
+}
+
+.tagline {
+    font-weight: bold;
+    color: #FFDAB3;
+    margin-bottom: 20px;
+}
+
+/* CV Card Elements */
+.experience-item, .project-item, .education-item {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #FFDAB3;
+    transition: 0.3s;
+}
+
+.experience-item:hover, .project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.skill-category {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.skill-category h3 {
+    font-size: 16px;
+    color: #574964;
+    margin-bottom: 5px;
+}
+
+/* Contact Form Section */
+.contact-section {
+    background: #574964;
+    color: white;
+    text-align: center;
+}
+
+.contact-section h2 {
+    color: white;
+}
+
+.contact-info-section {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* --- Responsive Queries (Required for Grade) --- */
+@media (max-width: 1024px) {
+    .sidebar { width: 240px; }
+    .main-content { margin-left: 240px; }
+    section { padding: 40px; }
+}
+
+@media (max-width: 768px) {
+    .container { flex-direction: column; }
+    .sidebar { width: 100%; height: auto; position: relative; }
+    .main-content { margin-left: 0; }
+    section { padding: 40px 20px; }
+}
