@@ -17,4 +17,5 @@ I learned how to implement the **Intersection Observer API** for scroll-triggere
 
 ## 4. Responsible Use & Modifications
 
-Every AI-generated snippet was reviewed and manually adjusted. I customized all project descriptions and experience details to reflect my actual work at SWE363 HW1 in KFUPM, such as the **Fast3R model** research and winning the **KFUPM Rally**. I also converted JS-style comments in HTML to proper semantic HTML comments to ensure code quality.
+Every AI-generated snippet was reviewed and manually adjusted. I customized all project descriptions and experience details to reflect my actual work as student in KFUPM, such as the **Fast3R model** research and winning the **KFUPM Rally**. I also converted JS-style comments in HTML to proper semantic HTML comments to ensure code quality.
+
