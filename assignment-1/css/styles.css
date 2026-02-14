@@ -175,7 +175,7 @@ h2 {
     margin-top: 20px;
 }
 
-/* --- Responsive Queries (Required for Grade) --- */
+/* --- Responsive Queries --- */
 @media (max-width: 1024px) {
     .sidebar { width: 240px; }
     .main-content { margin-left: 240px; }
@@ -187,4 +187,5 @@ h2 {
     .sidebar { width: 100%; height: auto; position: relative; }
     .main-content { margin-left: 0; }
     section { padding: 40px 20px; }
+
 }
