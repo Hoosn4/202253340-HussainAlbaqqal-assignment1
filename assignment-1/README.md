@@ -1,17 +1,36 @@
+
 # Hussain Albaggal - Software Engineering Portfolio
+## **Assignment 3: Advanced Functionality**
 
-> A responsive, professional personal portfolio website built with HTML5, CSS3, and JavaScript.
+> A responsive and interactive portfolio upgraded with advanced logic, API integration, and state management.
 
-##  Project Overview
-This is a professional portfolio showcasing my work as a Software Engineering student at King Fahd University of Petroleum and Minerals (KFUPM). The site is designed to demonstrate proficiency in core web technologies and responsive design principles while presenting my research and project history.
+---
 
-## 🎯 Key Features
-- **Responsive Design**: Optimized for desktop, tablet, and mobile viewing using CSS Flexbox.
-- **Interactive UI**: Includes smooth scrolling and scroll-triggered fade-in animations using the Intersection Observer API.
-- **CV Integration**: Fully synchronized with my latest professional experience, research at KFUPM, and Creative Minds Hub.
-- **Functional Contact Form**: A validated form for professional inquiries including Name, Email, and Message fields.
+## Project Overview
+This project extends the Assignment 1 and 2 portfolio with advanced features: external API data, multi-step logic, persistent user state, and performance-focused improvements.
 
-## 📁 Project Structure
+## Assignment 3 Requirements Checklist
+
+| Requirement | Implementation Status | Features Added |
+| :--- | :---: | :--- |
+| **API Integration** | ✅ | Live GitHub repositories from the GitHub REST API with retry handling |
+| **Complex Logic** | ✅ | Project filter + sort + level logic, advanced form validation, session timer |
+| **State Management** | ✅ | Persistent theme, simulated login/logout, saved visitor name, hide/show projects |
+| **Performance** | ✅ | Preconnect for CDN, efficient DOM updates, no heavy assets |
+| **AI Integration** | ✅ | Documented workflow and edits in `docs/ai-usage-report.md` |
+
+---
+
+## Tech Stack
+* **Structure:** Semantic HTML5 with accessible labels
+* **Styling:** CSS3 custom properties and responsive layout
+* **Logic:** Vanilla JavaScript (ES6+) with DOM APIs
+* **Icons:** Font Awesome 6.4
+
+---
+
+## Project Structure
+```text
 assignment-1/
 ├── README.md
 ├── index.html
@@ -25,23 +44,59 @@ assignment-1/
 │   ├── ai-usage-report.md
 │   └── technical-documentation.md
 └── .gitignore
+```
 
-##  Getting Started
+---
+
+## Installation & Running Locally
+
 ### Prerequisites
-- A modern web browser (Chrome, Firefox, Safari, or Edge).
+* A modern web browser (Chrome, Firefox, Safari, or Edge).
 
-### Running Locally
-1. Clone this repository to your local machine.
-2. Navigate to the root folder.
-3. Open `index.html` in your browser.
-4. **Optional**: Use a local server (e.g., Python `http.server` or VS Code Live Server) for the best performance.
+### Steps to Run
 
-##  Technologies Used
-- **HTML5**: Semantic markup for accessibility.
-- **CSS3**: Flexbox for layout and custom animations.
-- **JavaScript (ES6+)**: DOM manipulation and Intersection Observer API.
-- **Font Awesome**: Professional iconography.
+**1. Open the project**
+* **Directly:** Double-click `index.html` in your file explorer.
+* **Local Server (Recommended):**
 
-## 👤 Contact
-- **Email**: [s202253340@kfupm.edu.sa](mailto:s202253340@kfupm.edu.sa)
-- **LinkedIn**: [Hussain Albaggal](https://www.linkedin.com/in/hussain-albaggal)
+```bash
+python -m http.server 8000
+```
+
+Then visit: `http://localhost:8000`
+
+---
+
+## Features & User Guide
+
+### 1. Live GitHub Repositories (API Integration)
+* Fetches the latest public repositories from the GitHub API.
+* Shows a user-friendly error message with a retry button if the API fails.
+
+### 2. Project Filtering + Sorting + Levels (Complex Logic)
+* Filter by category, choose level (Beginner/Advanced), and sort by date or name.
+* A summary message updates based on the selected options.
+
+### 3. Advanced Contact Form
+* Validates required fields, email format, name characters, and message length.
+* Shows clear feedback and resets on success.
+
+### 4. Session Timer
+* Displays time spent on the site in minutes and seconds.
+
+### 5. State Management
+* Remembers theme choice, visitor name, login status, and project visibility using localStorage.
+
+---
+
+## AI Integration Summary
+AI tools were used to accelerate development and ensure correct logic. Full details are in `docs/ai-usage-report.md`.
+
+---
+
+## Contact Information
+* **Name:** Hussain Albaggal
+* **Email:** s202253340@kfupm.edu.sa
+* **LinkedIn:** https://www.linkedin.com/in/hussain-albaggal
+* **GitHub:** https://github.com/Hoosn4
+

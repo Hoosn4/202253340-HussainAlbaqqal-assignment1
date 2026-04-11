@@ -1,22 +1,69 @@
-# AI Usage Report
+# AI Usage Report - Assignment 3
 
 **Student**: Hussain Albaggal  
 **Student ID**: s202253340  
-**Assignment**: SWE363 - Assignment 1
+**Assignment**: SWE363 - Assignment 3 (Advanced Functionality)  
+**Date**: April 11, 2026
+
+---
 
 ## 1. Tools Used & Use Cases
-- **GitHub Copilot**: Used for generating CSS boilerplate and the initial Flexbox structure of the fixed sidebar layout. It also assisted in creating the responsive navigation structure.
-- **Claude / ChatGPT**: Utilized for debugging the `IntersectionObserver` JavaScript logic and explaining complex concepts like semantic HTML and responsive design. They also helped structure the comprehensive technical documentation  and made contact section validation code (small code).
+
+### GitHub Copilot
+- **API Integration**: Suggested structure for GitHub API fetch, loading, and error handling
+- **Complex Logic**: Assisted with filter + sort + level logic and timer formatting
+- **State Management**: Helped outline localStorage state keys and update flow
+
+### ChatGPT
+- **Documentation**: Helped draft clear Assignment 3 documentation structure
+- **Validation Rules**: Suggested extra form checks and input rules
+
+---
 
 ## 2. Benefits & Challenges
-- **Benefits**: The AI significantly reduced development time for boilerplate code and suggested professional color schemes (Deep Purple and Peach) that match a professional aesthetic.
-- **Challenges**: Initial AI-generated code sometimes used non-semantic HTML comments or generic solutions that required manual modification to fit specific project goals, such as mobile responsiveness.
+
+### Key Benefits
+- **Faster Development**: Reduced time spent on repetitive boilerplate
+- **Stronger Logic**: Combined multiple conditions for filtering/sorting and validation
+- **Clear UX**: Improved messaging and state feedback
+
+### Challenges Overcome
+- **API Edge Cases**: Ensured a clean error state with retry button
+- **State Consistency**: Verified the UI always matches stored state
+- **Accessibility**: Updated gradients to improve contrast and readability
+
+---
 
 ## 3. Learning Outcomes
-I learned how to implement the **Intersection Observer API** for scroll-triggered animations, which is more performant than traditional scroll events. I also improved my understanding of **responsive design** by refining media queries to handle various mobile viewports correctly.
+
+### Technical Skills Acquired
+I deepened my understanding of:
+- **API Integration**: Fetching and rendering external data safely
+- **Advanced DOM Logic**: Sorting, filtering, and multi-step conditions
+- **State Persistence**: Managing multiple localStorage keys reliably
+- **Input Validation**: Building layered validation rules for forms
+
+
+---
 
 ## 4. Responsible Use & Modifications
 
-Every AI-generated snippet was reviewed and manually adjusted. I customized all project descriptions and experience details to reflect my actual work as student in KFUPM, such as the **Fast3R model** research and winning the **KFUPM Rally**. I also converted JS-style comments in HTML to proper semantic HTML comments to ensure code quality.
+### Review & Customization Process
+Every AI-generated segment was reviewed for:
+1. **Correctness**: Verified API behavior and edge cases
+2. **User Experience**: Refined feedback messages and UI labels
+3. **Performance**: Kept DOM updates minimal and avoided heavy assets
+
+### Specific Modifications Made
+- **GitHub API Output**: Added cards and metadata fields
+- **Project Sorting**: Implemented date and name sorting with DOM reuse
+- **State Controls**: Added saved visitor name and project visibility toggle
+
+---
+
+## 5. Conclusion
+
+AI tools were used as productivity accelerators, but all output was reviewed, tested, and modified. This ensured the final implementation meets Assignment 3 requirements with correct logic, state handling, and clear documentation.
+
 
 
