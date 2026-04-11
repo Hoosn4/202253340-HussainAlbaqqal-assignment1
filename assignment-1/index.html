@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hussain Albaggal | Software Engineer Portfolio</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -20,10 +21,11 @@
                 </div>
                 <h2 class="profile-name">Hussain Albaggal</h2>
             </div>
+            <button id="themeToggle" class="theme-toggle-btn">🌙 Dark Mode</button>
 
             <div class="social-links">
-                <a href="https://github.com/Hoosn4" class="social-icon" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/hussain-albaggal" class="social-icon" title="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/Hoosn4" class="social-icon" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/hussain-albaggal" class="social-icon" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
             </div>
 
             <nav class="sidebar-nav">
@@ -32,6 +34,7 @@
                     <li><a href="#resume"><i class="fas fa-graduation-cap"></i> <span>Education</span></a></li>
                     <li><a href="#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
                     <li><a href="#projects"><i class="fas fa-code"></i> <span>Projects</span></a></li>
+                    <li><a href="#github-projects"><i class="fab fa-github"></i> <span>GitHub API</span></a></li>
                     <li><a href="#certifications"><i class="fas fa-certificate"></i> <span>Certifications</span></a></li>
                     <li><a href="#skills"><i class="fas fa-wrench"></i> <span>Skills</span></a></li>
                     <li><a href="#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
@@ -46,13 +49,30 @@
 
         <main class="main-content">
             <section class="about-me-section" id="home">
-                <h2>Hussain Albaggal</h2>
+                <h2 id="dynamicGreeting" class="greeting-header">Good Morning, I'm Hussain Albaggal</h2>
                 <p class="tagline">Software Engineering Student | 3D Reconstruction | Full-Stack Development</p>
                 <p>
                     I am a Software Engineering student at KFUPM specializing in Deep Learning and Full-Stack Development. 
                     Currently, I serve as an Undergraduate Research Assistant implementing the Fast3R model for 3D reconstruction, 
                     applying advanced geometric modeling and Python-based deep learning workflows.
                 </p>
+                <div class="visitor-panel" aria-label="Visitor preferences">
+                    <div class="visitor-row">
+                        <p>Welcome, <strong id="visitorNameDisplay">Guest</strong></p>
+                        <p>Status: <strong id="authStatus">Logged out</strong></p>
+                    </div>
+                    <div class="visitor-actions">
+                        <label for="visitorNameInput" class="form-field-label">Your Name
+                            <input type="text" id="visitorNameInput" class="form-input" placeholder="Enter your name">
+                        </label>
+                        <div class="visitor-buttons">
+                            <button id="saveNameBtn" class="form-submit-button" type="button">Save Name</button>
+                            <button id="authToggleBtn" class="form-submit-button" type="button">Log In</button>
+                            <button id="toggleProjectsBtn" class="form-submit-button" type="button">Hide Projects</button>
+                        </div>
+                    </div>
+                    <p class="visitor-timer">Time on site: <strong id="sessionTimer">00:00</strong></p>
+                </div>
             </section>
 
             <section class="education-section" id="resume">
@@ -88,26 +108,61 @@
 
             <section class="projects-section" id="projects">
                 <h2>Projects</h2>
-                <div class="project-item">
+                <div class="project-controls" aria-label="Project filters and sorting">
+                    <div class="project-filter-bar">
+                        <button class="project-filter-btn active" data-filter="all" type="button">All</button>
+                        <button class="project-filter-btn" data-filter="web" type="button">Web Development</button>
+                        <button class="project-filter-btn" data-filter="ml" type="button">Machine Learning</button>
+                    </div>
+                    <div class="project-selects">
+                        <label for="levelSelect" class="project-select-label">Level
+                            <select id="levelSelect" class="project-select">
+                                <option value="all">All Levels</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                        </label>
+                        <label for="sortSelect" class="project-select-label">Sort By
+                            <select id="sortSelect" class="project-select">
+                                <option value="newest">Newest</option>
+                                <option value="oldest">Oldest</option>
+                                <option value="name">Name (A-Z)</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="projectMessage" class="project-message">Showing all projects.</div>
+
+                <div id="projectEmptyState" class="project-empty-state">No projects found for this category.</div>
+
+                <div class="project-item" data-category="web" data-date="2024-12-10" data-level="advanced">
                     <h3>Coffee Shop E-Commerce Platform</h3>
                     <p><strong>Tech:</strong> Node.js, MongoDB, React</p>
                     <p>Building a full-stack platform for coffee retailers featuring dynamic shopping carts and shop management tools.</p>
                 </div>
-                <div class="project-item">
-                    <h3>Automated Fuzzing & Testing Campaign</h3>
-                    <p><strong>Tech:</strong> AFL++, LLVM, Linux</p>
-                    <p>Conducted greybox fuzzing to identify multiple logic bugs by analyzing code coverage on specialized software.</p>
-                </div>
-                <div class="project-item">
-                    <h3>Smoking Status Prediction (ML)</h3>
-                    <p><strong>Tech:</strong> Scikit-learn, Pandas, NumPy</p>
-                    <p>Engineered a prediction model to categorize users based on smoking habits using health datasets.</p>
-                </div>
-                <div class="project-item">
+                <div class="project-item" data-category="web" data-date="2024-08-20" data-level="beginner">
                     <h3>Smart Home Simulation</h3>
                     <p><strong>Tech:</strong> Java, Java Swing</p>
                     <p>Designed a modular system applying SOLID principles and design patterns (Factory, Decorator) with a GUI.</p>
                 </div>
+                <div class="project-item" data-category="ml" data-date="2024-03-15" data-level="beginner">
+                    <h3>Smoking Status Prediction (ML)</h3>
+                    <p><strong>Tech:</strong> Scikit-learn, Pandas, NumPy</p>
+                    <p>Engineered a prediction model to categorize users based on smoking habits using health datasets.</p>
+                </div>
+                <div class="project-item" data-category="ml" data-date="2023-11-05" data-level="advanced">
+                    <h3>Automated Fuzzing & Testing Campaign</h3>
+                    <p><strong>Tech:</strong> AFL++, LLVM, Linux</p>
+                    <p>Conducted greybox fuzzing to identify multiple logic bugs by analyzing code coverage on specialized software.</p>
+                </div>
+            </section>
+
+            <section class="github-section" id="github-projects">
+                <h2>Live GitHub Repositories</h2>
+                <p class="github-section-intro">This section is loaded from the GitHub API to keep my portfolio projects up to date.</p>
+                <output id="githubStatus" class="github-status" aria-live="polite">Loading repositories...</output>
+                <div id="githubRepoList" class="github-repo-list"></div>
             </section>
 
             <section class="certifications-section" id="certifications">
@@ -138,16 +193,22 @@
 
             <section class="contact-section" id="contact">
                 <h2>Contact</h2>
-                <form id="contactForm" class="contact-info-section">
-                    <input type="text" id="name" placeholder="Name" required style="width: 100%; margin-bottom: 10px; padding: 12px; border-radius: 5px; border: none;">
-                    <input type="email" id="email" placeholder="Email" required style="width: 100%; margin-bottom: 10px; padding: 12px; border-radius: 5px; border: none;">
-                    <textarea id="message" placeholder="Your Message" rows="5" required style="width: 100%; margin-bottom: 15px; padding: 12px; border-radius: 5px; border: none; font-family: inherit;"></textarea>
-                    <button type="submit" style="background-color: #FFDAB3; color: #574964; padding: 12px 25px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s;">Send Message</button>
+                <form id="contactForm" class="contact-info-section" novalidate>
+                    <label for="name" class="form-field-label">Name
+                        <input type="text" id="name" placeholder="Name" required class="form-input">
+                    </label>
+                    <label for="email" class="form-field-label">Email
+                        <input type="email" id="email" placeholder="Email" required class="form-input">
+                    </label>
+                    <label for="message" class="form-field-label">Your Message
+                        <textarea id="message" placeholder="Your Message" rows="5" required class="form-input"></textarea>
+                    </label>
+                    <div id="formFeedback" class="form-feedback"></div>
+                    <button type="submit" class="form-submit-button">Send Message</button>
                 </form>
             </section>
         </main>
     </div>
     <script src="js/script.js"></script>
 </body>
-// test comment for commit
 </html>
