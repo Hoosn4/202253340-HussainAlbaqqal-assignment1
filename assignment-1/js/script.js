@@ -276,6 +276,56 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function createRepoCard(repo) {
+        const article = document.createElement('article');
+        article.className = 'github-repo-card';
+
+        const title = document.createElement('h3');
+        title.textContent = repo.name;
+
+        const description = document.createElement('p');
+        description.textContent = repo.description || 'No description provided.';
+
+        const meta = document.createElement('div');
+        meta.className = 'github-meta';
+
+        const langSpan = document.createElement('span');
+        const langStrong = document.createElement('strong');
+        langStrong.textContent = 'Language: ';
+        langSpan.appendChild(langStrong);
+        langSpan.appendChild(document.createTextNode(repo.language || 'N/A'));
+
+        const starsSpan = document.createElement('span');
+        const starsStrong = document.createElement('strong');
+        starsStrong.textContent = 'Stars: ';
+        starsSpan.appendChild(starsStrong);
+        starsSpan.appendChild(document.createTextNode(String(repo.stargazers_count)));
+
+        const forksSpan = document.createElement('span');
+        const forksStrong = document.createElement('strong');
+        forksStrong.textContent = 'Forks: ';
+        forksSpan.appendChild(forksStrong);
+        forksSpan.appendChild(document.createTextNode(String(repo.forks_count)));
+
+        meta.appendChild(langSpan);
+        meta.appendChild(starsSpan);
+        meta.appendChild(forksSpan);
+
+        const link = document.createElement('a');
+        link.className = 'github-repo-link';
+        link.href = repo.html_url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = 'View Repository';
+
+        article.appendChild(title);
+        article.appendChild(description);
+        article.appendChild(meta);
+        article.appendChild(link);
+
+        return article;
+    }
+
     function renderGitHubRepos(repositories) {
         if (!githubRepoList || !githubStatus) return;
 
@@ -287,25 +337,10 @@ document.addEventListener('DOMContentLoaded', function() {
         githubStatus.classList.remove('error');
         githubStatus.textContent = `Showing ${repositories.length} latest repositories from GitHub.`;
 
-        githubRepoList.innerHTML = repositories.map(repo => {
-            const safeDescription = repo.description
-                ? repo.description
-                : 'No description provided.';
-            const language = repo.language || 'N/A';
-
-            return `
-                <article class="github-repo-card">
-                    <h3>${repo.name}</h3>
-                    <p>${safeDescription}</p>
-                    <div class="github-meta">
-                        <span><strong>Language:</strong> ${language}</span>
-                        <span><strong>Stars:</strong> ${repo.stargazers_count}</span>
-                        <span><strong>Forks:</strong> ${repo.forks_count}</span>
-                    </div>
-                    <a class="github-repo-link" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">View Repository</a>
-                </article>
-            `;
-        }).join('');
+        githubRepoList.innerHTML = '';
+        repositories.forEach(repo => {
+            githubRepoList.appendChild(createRepoCard(repo));
+        });
     }
 
     async function fetchGitHubRepos() {
