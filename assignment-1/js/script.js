@@ -132,7 +132,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (saveNameBtn && visitorNameInput && visitorNameDisplay) {
         saveNameBtn.addEventListener('click', () => {
             const name = visitorNameInput.value.trim();
-            const safeName = name.length >= 2 ? name : 'Guest';
+            // Only allow letters, spaces, hyphens, and apostrophes to keep stored name clean
+            const namePattern = /^[a-zA-Z\s'-]+$/;
+            const safeName = (name.length >= 2 && namePattern.test(name)) ? name : 'Guest';
             visitorNameDisplay.textContent = safeName;
             saveVisitorName(safeName);
         });
@@ -356,8 +358,17 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=6`);
 
+            if (response.status === 403) {
+                showGitHubError('GitHub API rate limit exceeded. Please wait a few minutes and try again.');
+                return;
+            }
+            if (response.status === 404) {
+                showGitHubError('GitHub user not found. Please check the username and try again.');
+                return;
+            }
             if (!response.ok) {
-                throw new Error(`GitHub API request failed with status ${response.status}`);
+                showGitHubError(`GitHub API returned an error (status ${response.status}). Please try again later.`);
+                return;
             }
 
             const data = await response.json();
