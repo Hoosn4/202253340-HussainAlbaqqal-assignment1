@@ -267,13 +267,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function showGitHubError(message) {
         if (!githubStatus || !githubRepoList) return;
         githubStatus.classList.add('error');
-        githubStatus.innerHTML = `${message}<br><button id="retryGithubFetch" class="github-retry-btn" type="button">Try Again</button>`;
+        githubStatus.textContent = message;
+        const retryBtn = document.createElement('button');
+        retryBtn.id = 'retryGithubFetch';
+        retryBtn.className = 'github-retry-btn';
+        retryBtn.type = 'button';
+        retryBtn.textContent = 'Try Again';
+        retryBtn.addEventListener('click', fetchGitHubRepos);
+        githubStatus.appendChild(document.createElement('br'));
+        githubStatus.appendChild(retryBtn);
         githubRepoList.innerHTML = '';
-
-        const retryBtn = document.getElementById('retryGithubFetch');
-        if (retryBtn) {
-            retryBtn.addEventListener('click', fetchGitHubRepos);
-        }
     }
 
     function createRepoCard(repo) {
@@ -400,7 +403,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (errors.length > 0) {
                 formFeedback.classList.add('error');
-                formFeedback.innerHTML = errors.map(item => `<div>${item}</div>`).join('');
+                formFeedback.innerHTML = '';
+                errors.forEach(msg => {
+                    const div = document.createElement('div');
+                    div.textContent = msg;
+                    formFeedback.appendChild(div);
+                });
                 return;
             }
 

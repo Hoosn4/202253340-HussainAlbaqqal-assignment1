@@ -31,7 +31,7 @@ This project extends the Assignment 1 and 2 portfolio with advanced features: ex
 
 ## Project Structure
 ```text
-assignment-3/
+assignment-1/
 ├── README.md
 ├── index.html
 ├── css/
